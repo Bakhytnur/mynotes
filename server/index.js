@@ -14,7 +14,7 @@ app.use(express.json())
 app.post("/notes", async(req, res) => {
     try {
         const { body } = req.body;
-        const newNote = await pool.query("INSERT INTO notes (description) VALUES($1) RETURNING *", [body]);
+        const newNote = await pool.query("INSERT INTO notes (body) VALUES($1) RETURNING *", [body]);
         res.json(newNote.rows[0]);
     } catch (err) {
         console.error(err.message);

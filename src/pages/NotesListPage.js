@@ -20,7 +20,7 @@ const NotesListPage = (props) => {
 
   useEffect(() => {
     getNotes();
-  }, []);
+  }, [notes.length]);
 
   console.log(notes)
   return (

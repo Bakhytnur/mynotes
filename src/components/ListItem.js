@@ -30,7 +30,7 @@ let getContent = (note) => {
 const ListItem = ({note}) => {
     //console.log('PROPS:', props)
   return (
-    <Link to={`/note/${note.id}`}>
+    <Link to={`/note/${note.note_id}`}>
         <div className='notes-list-item'>
           <h3>{getTitle(note)}</h3>
           <p><span>{getDate(note)}</span>{getContent(note)}</p>
