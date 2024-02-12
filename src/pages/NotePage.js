@@ -19,13 +19,13 @@ const NotePage = (props) => {
 
   let getNote = async () => {
     if(id === 'new') return
-    let response =  await fetch(`http://localhost:8000/notes/${id}`)
+    let response =  await fetch(`http://localhost:5002/notes/${id}`)
     let data = await response.json()
     setNote(data)
   }
 
   let createNote = async () => {
-    await fetch(`http://localhost:8000/notes/`, {
+    await fetch(`http://localhost:5002/notes/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ const NotePage = (props) => {
   }
 
   let updateNote = async () => {
-    await fetch(`http://localhost:8000/notes/${id}`, {
+    await fetch(`http://localhost:5002/notes/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const NotePage = (props) => {
   }
 
   let deleteNote = async () => {
-    await fetch(`http://localhost:8000/notes/${id}`, {
+    await fetch(`http://localhost:5002/notes/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

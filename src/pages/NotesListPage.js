@@ -5,18 +5,24 @@ import AddButton from '../components/AddButton'
 
 const NotesListPage = (props) => {
   let [notes, setNotes] = useState([]) 
+  console.log("notes", notes);
 
   useEffect(() => {
     getNotes()
   }, [])
 
   let getNotes = async () => {
-    let response = await fetch('http://localhost:8000/notes')
+    let response = await fetch('http://localhost:5002/notes')
     let data = await response.json()
     console.log("data:", data)
     setNotes(data)
   }
-  console.log(props)
+
+  useEffect(() => {
+    getNotes();
+  }, []);
+
+  console.log(notes)
   return (
     <div className='notes'>
       <div className='notes-header'>
